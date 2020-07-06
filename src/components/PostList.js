@@ -11,6 +11,11 @@ class PostList extends React.Component{
     componentDidMount() {
         this.props.fetchPosts();
     }
+    /* ComponentDidMount will run everytime the component PostList mounts.
+    Render list is used as the logic function to take the posts data returned by the API call,
+    it will then map it to identifier post, and display the title and body individually inside a div to be
+    rendered on the app
+    */
 
     renderList(){
         return this.props.posts.map(post => {
@@ -28,15 +33,19 @@ class PostList extends React.Component{
         });
 
     }
+    /* simply rendering the list inside the render function */
 
     render () {
         return <div>{this.renderList()}</div>
     }
 }
 
+/*this is our mapping function that as described, takes the state object and maps it to the posts using the identifier
+"posts" as defined in our reducer*/
 const mapStateToProps = (state) => {
     return { posts: state.posts}
 
 }
 
+/* we are exporting default the function that maps the state object to posts, and the function that retrieves the posts via API call */
 export default connect(mapStateToProps, { fetchPosts })(PostList);

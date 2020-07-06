@@ -9,7 +9,6 @@ import reducers from './reducers'
 
 const store = createStore(reducers, applyMiddleware(thunk))
 {/* creating a store for reducers and applying the thunk middleware */}
-
 ReactDOM.render(
   <Provider store = {store}>
     <App />
