@@ -12,6 +12,7 @@ import jsonPlaceholder from '../apis/jsonPlaceholder';
 export const fetchPosts = () => async dispatch => {
 
         const response = await jsonPlaceholder.get("/posts");
-
+        /*when we dispatch below, a copy of the dispatch request goes to all the reducers defined in the combinedReducers bit
+        so it then is passed off into the original reducers to be acted on */
         dispatch({ type: 'FETCH_POSTS', payload: response.data})
     };
